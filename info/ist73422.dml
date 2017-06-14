@@ -1,0 +1,58 @@
+package pt.tecnico.mydrive.domain;
+
+class User{
+	String _username;
+	String _password;
+	String _name;
+	String _umask;
+	Dir _home;
+}
+
+class Root extends User{
+}
+
+class File{
+	int _ID;
+	String _name;
+	String _home;
+	User _user;
+	DateTime _modTime;
+	String _creatorMask;
+	String _usersMask;
+}
+
+class PlainFile extends File{
+	String _text;
+}
+
+class Dir extends File{
+	File[] _files;
+	int _dimension;
+}
+
+class Link extends PlainFile{
+}
+
+class App extends PlainFile{
+}
+
+relation KnownUser{
+	.pt.ist.fenixframework.DomainRoot playsRole root;
+	User playsRole user {multiplicty *;}
+}
+
+relation KnownFile{
+	.pt.ist.fenixframework.DomainRoot playsRole root;
+	File playsRole file {multiplicty *;}
+}
+
+
+relation UserFile{
+	User playsRole user;
+	File playsRole file {multiplicty *;}
+}
+
+relation DirFiles{
+	Dir playsRole dir {multiplicty *;}
+	File playsRole file {multiplicty *;}
+}
