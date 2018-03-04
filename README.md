@@ -2,7 +2,7 @@
 
 This is the main README file for the MyDrive project.
 
-###Repository Structure
+### Repository Structure
 The current version of the repository contains the following structure:
 	
 	.
@@ -149,7 +149,7 @@ The current version of the repository contains the following structure:
 								└── SystemTest.java
 								
 		
-##Usefull commands
+## Usefull commands
 
 mvn dbclean:dbclean
 
